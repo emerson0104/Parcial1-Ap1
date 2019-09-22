@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrimerPArcialAp1
+namespace PruebG
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace PrimerPArcialAp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Menu());
+            Application.Run(new Form1());
         }
     }
 }

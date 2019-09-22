@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrimerPArcialAp1
+namespace PruebG
 {
     public partial class Form1 : Form
     {
