@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PrimerPArcialAp1.BLL
 {
-    class EvaluacionBLL
+   public class EvaluacionBLL
     {
         public static bool Guardar(Evaluacion evaluacion)
         {
@@ -103,8 +103,11 @@ namespace PrimerPArcialAp1.BLL
             return evaluacion;
 
         }
-        
-  
+
+        public static decimal CalcularPerdido(decimal valor, decimal logrado)
+        {
+            return valor - logrado;
+        }
     }
 }
     

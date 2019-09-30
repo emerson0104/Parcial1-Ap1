@@ -36,15 +36,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.EstudianteTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ValorTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LogradoTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.PerdidoTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LogradoTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ValorTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
@@ -121,21 +121,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Calificacion Tarea Parcial";
             // 
-            // ValorTextBox
+            // label6
             // 
-            this.ValorTextBox.Location = new System.Drawing.Point(13, 36);
-            this.ValorTextBox.Name = "ValorTextBox";
-            this.ValorTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ValorTextBox.TabIndex = 9;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(259, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Perdido";
             // 
-            // label4
+            // PerdidoTextBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Valor";
+            this.PerdidoTextBox.Location = new System.Drawing.Point(234, 36);
+            this.PerdidoTextBox.Name = "PerdidoTextBox";
+            this.PerdidoTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PerdidoTextBox.TabIndex = 13;
+            this.PerdidoTextBox.TextChanged += new System.EventHandler(this.PerdidoTextBox_TextChanged);
             // 
             // label5
             // 
@@ -152,22 +153,24 @@
             this.LogradoTextBox.Name = "LogradoTextBox";
             this.LogradoTextBox.Size = new System.Drawing.Size(100, 20);
             this.LogradoTextBox.TabIndex = 11;
+            this.LogradoTextBox.TextChanged += new System.EventHandler(this.LogradoTextBox_TextChanged);
             // 
-            // label6
+            // label4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(259, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Perdido";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(38, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Valor";
             // 
-            // PerdidoTextBox
+            // ValorTextBox
             // 
-            this.PerdidoTextBox.Location = new System.Drawing.Point(234, 36);
-            this.PerdidoTextBox.Name = "PerdidoTextBox";
-            this.PerdidoTextBox.Size = new System.Drawing.Size(100, 20);
-            this.PerdidoTextBox.TabIndex = 13;
+            this.ValorTextBox.Location = new System.Drawing.Point(13, 36);
+            this.ValorTextBox.Name = "ValorTextBox";
+            this.ValorTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ValorTextBox.TabIndex = 9;
+            this.ValorTextBox.TextChanged += new System.EventHandler(this.ValorTextBox_TextChanged);
             // 
             // groupBox2
             // 
@@ -180,15 +183,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Por Como vas Deberias";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 29);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Pronostico";
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -200,6 +194,15 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 29);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Pronostico";
             // 
             // NuevoButton
             // 

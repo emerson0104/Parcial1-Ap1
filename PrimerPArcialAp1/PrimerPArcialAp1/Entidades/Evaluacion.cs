@@ -12,19 +12,20 @@ namespace PrimerPArcialAp1.Entidades
         public int EvaluacionId { get; set; }
         public string Estudiantes { get; set; }
         public DateTime Fecha { get; set; }
-        public float Valor { get; set; }
-        public float Logrado { get; set; }
-        public float Perdido { get; set; }
-        public string Pronostico { get; set; }
+        public decimal Valor { get; set; }
+        public decimal Logrado { get; set; }
+        public decimal Perdido { get; set; }
+        public int Pronostico { get; set; }
 
         public Evaluacion()
         {
             EvaluacionId = 0;
             Estudiantes = string.Empty;
-            Pronostico = string.Empty;
+            Pronostico = 0;
             Fecha = DateTime.Now;
             Valor = 0;
             Logrado = 0;
+            Perdido = 0;
         }
     }
 }

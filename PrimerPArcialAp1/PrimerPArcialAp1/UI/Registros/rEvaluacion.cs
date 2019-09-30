@@ -28,34 +28,37 @@ namespace PrimerPArcialAp1.UI.Registros
             IdNumericUpDown.Value = 0;
             EstudianteTextBox.Text = string.Empty;
             FechaDateTimePicker1.Value = DateTime.Now;
-            ValorTextBox.Text = "";
-            LogradoTextBox.Text = "";
-            PerdidoTextBox.Text = "";
+            ValorTextBox.Text = string.Empty;
+            LogradoTextBox.Text = string.Empty;
+            PerdidoTextBox.Text = string.Empty;
+            comboBox1.Text = string.Empty;
         }
         public Evaluacion Llenaclase()
         {
             Evaluacion evaluacion = new Evaluacion();
             evaluacion.Fecha = FechaDateTimePicker1.Value;
             evaluacion.Estudiantes = EstudianteTextBox.Text;
-            float logrado= evaluacion.Logrado = Convert.ToSingle(LogradoTextBox.Text);
-            
-            evaluacion.Perdido= Convert.ToSingle(PerdidoTextBox.Text);
+            evaluacion.Logrado = Convert.ToDecimal(LogradoTextBox.Text);
 
-            evaluacion.Valor= Convert.ToSingle(ValorTextBox.Text);
-            return evaluacion;
-     
+            evaluacion.Perdido = Convert.ToDecimal(PerdidoTextBox.Text) ;
+
+            evaluacion.Valor = Convert.ToDecimal(ValorTextBox.Text);
+           
+         
+
+            return evaluacion; 
         }
-        public void LlenaCampo(Evaluacion evaluacion)
+            public void LlenaCampo(Evaluacion evaluacion)
         {
           
             FechaDateTimePicker1.Value= evaluacion.Fecha  ;
             EstudianteTextBox.Text = evaluacion.Estudiantes;
-            float logrado = Convert.ToSingle(LogradoTextBox.Text = evaluacion.Logrado.ToString());
-           float  perdido = Convert.ToSingle(PerdidoTextBox.Text = evaluacion.Perdido.ToString());
-           float valor = Convert.ToSingle(ValorTextBox.Text = evaluacion.Valor.ToString());
-            
-                
-          
+          LogradoTextBox.Text = evaluacion.Logrado.ToString();
+           PerdidoTextBox.Text = Convert.ToString(EvaluacionBLL.CalcularPerdido(evaluacion.Valor,evaluacion.Logrado));
+           ValorTextBox.Text = evaluacion.Valor.ToString();
+          comboBox1.Text = Convert.ToString(comboBox1.SelectedItem);
+
+
 
         }
   
@@ -98,14 +101,21 @@ namespace PrimerPArcialAp1.UI.Registros
 
                 int id;
                 int.TryParse(IdNumericUpDown.Text, out id);
+            if (!ExisteEnLaBaseDeDatos())
+            {
+                MessageBox.Show("No se puede eliminar el Estudiante que no existe", "fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
 
-                Limpiar();
+            }
+            else {
+            Limpiar();
 
                 if (EvaluacionBLL.Eliminar(id))
                     MessageBox.Show("Eliminado", " Con Exito..", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     errorProvider1.SetError(IdNumericUpDown, "No se puede eliminar un estudiante que no existe");
             }
+        }
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
@@ -153,7 +163,7 @@ namespace PrimerPArcialAp1.UI.Registros
 
             if (evaluacion!= null)
             {
-                MessageBox.Show("Estudiante encontrado.");
+                MessageBox.Show("Estudiante encontrado exitosamente.");
                 LlenaCampo(evaluacion);
 
             }
@@ -161,6 +171,54 @@ namespace PrimerPArcialAp1.UI.Registros
             {
                 MessageBox.Show("Estudiante no encontrado.");
             }
+        }
+
+        private void PerdidoTextBox_TextChanged(object sender, EventArgs e)
+        { 
+        }
+
+        private void LogradoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Evaluacion evaluacion = new Evaluacion();
+           
+
+            if (EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado) > (evaluacion.Valor * (decimal)0.30))
+            {
+                comboBox1.SelectedIndex = 2;
+            }
+            else
+          if (EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado) <= (evaluacion.Valor * (decimal)0.30) && EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado) >= (evaluacion.Valor * (decimal)0.25))
+            {
+                comboBox1.SelectedIndex = 1;
+            }
+            else
+          if (EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado) < (evaluacion.Valor * (decimal)0.25))
+            {
+                comboBox1.SelectedIndex = 0;
+
+            }
+
+            evaluacion.Pronostico = Convert.ToInt32(comboBox1.SelectedIndex);
+
+            decimal valor = 0;
+            decimal logrado = 0;
+            decimal perdido = valor - logrado;
+            PerdidoTextBox.Text = perdido.ToString();
+
+
+        }
+
+        private void ValorTextBox_TextChanged(object sender, EventArgs e)
+        {
+            decimal valor = 0;
+            decimal logrado = 0;
+         
+           
+
+            valor = Convert.ToDecimal(ValorTextBox.Text);
+            logrado = Convert.ToDecimal(LogradoTextBox.Text);
+            decimal perdido = valor - logrado;
+            PerdidoTextBox.Text = perdido.ToString();
         }
     }
     }
