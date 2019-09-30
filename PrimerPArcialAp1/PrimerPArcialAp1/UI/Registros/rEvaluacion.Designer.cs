@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rEvaluacion));
             this.label1 = new System.Windows.Forms.Label();
             this.IdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -151,7 +152,7 @@
             // 
             this.LogradoTextBox.Location = new System.Drawing.Point(119, 36);
             this.LogradoTextBox.Name = "LogradoTextBox";
-            this.LogradoTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LogradoTextBox.Size = new System.Drawing.Size(84, 20);
             this.LogradoTextBox.TabIndex = 11;
             this.LogradoTextBox.TextChanged += new System.EventHandler(this.LogradoTextBox_TextChanged);
             // 
@@ -168,7 +169,7 @@
             // 
             this.ValorTextBox.Location = new System.Drawing.Point(13, 36);
             this.ValorTextBox.Name = "ValorTextBox";
-            this.ValorTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ValorTextBox.Size = new System.Drawing.Size(80, 20);
             this.ValorTextBox.TabIndex = 9;
             this.ValorTextBox.TextChanged += new System.EventHandler(this.ValorTextBox_TextChanged);
             // 
@@ -206,9 +207,11 @@
             // 
             // NuevoButton
             // 
-            this.NuevoButton.Location = new System.Drawing.Point(27, 288);
+            this.NuevoButton.Image = ((System.Drawing.Image)(resources.GetObject("NuevoButton.Image")));
+            this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NuevoButton.Location = new System.Drawing.Point(13, 280);
             this.NuevoButton.Name = "NuevoButton";
-            this.NuevoButton.Size = new System.Drawing.Size(75, 23);
+            this.NuevoButton.Size = new System.Drawing.Size(98, 31);
             this.NuevoButton.TabIndex = 9;
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.UseVisualStyleBackColor = true;
@@ -216,9 +219,11 @@
             // 
             // GuardarButton
             // 
-            this.GuardarButton.Location = new System.Drawing.Point(121, 288);
+            this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
+            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GuardarButton.Location = new System.Drawing.Point(117, 280);
             this.GuardarButton.Name = "GuardarButton";
-            this.GuardarButton.Size = new System.Drawing.Size(75, 23);
+            this.GuardarButton.Size = new System.Drawing.Size(98, 31);
             this.GuardarButton.TabIndex = 10;
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.UseVisualStyleBackColor = true;
@@ -226,9 +231,11 @@
             // 
             // EliminarButton
             // 
-            this.EliminarButton.Location = new System.Drawing.Point(216, 288);
+            this.EliminarButton.Image = ((System.Drawing.Image)(resources.GetObject("EliminarButton.Image")));
+            this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarButton.Location = new System.Drawing.Point(216, 280);
             this.EliminarButton.Name = "EliminarButton";
-            this.EliminarButton.Size = new System.Drawing.Size(114, 23);
+            this.EliminarButton.Size = new System.Drawing.Size(114, 31);
             this.EliminarButton.TabIndex = 11;
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.UseVisualStyleBackColor = true;
@@ -240,9 +247,11 @@
             // 
             // BuscarButton
             // 
+            this.BuscarButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarButton.Image")));
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BuscarButton.Location = new System.Drawing.Point(121, 35);
             this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(54, 23);
+            this.BuscarButton.Size = new System.Drawing.Size(94, 23);
             this.BuscarButton.TabIndex = 12;
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.UseVisualStyleBackColor = true;

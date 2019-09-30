@@ -111,6 +111,11 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="DAL\script.sql" />
+    <Content Include="Resours\iconfinder_Download_1031520.png" />
+    <Content Include="Resours\iconfinder_f-cross_256_282471.png" />
+    <Content Include="Resours\iconfinder_Notes_32519.png" />
+    <Content Include="Resours\iconfinder_system-search_118797.png" />
+    <Content Include="Resours\iconfinder_view-refresh_118801.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
