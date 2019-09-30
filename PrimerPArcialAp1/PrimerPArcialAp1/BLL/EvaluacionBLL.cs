@@ -127,6 +127,23 @@ namespace PrimerPArcialAp1.BLL
         {
             return valor - logrado;
         }
+        public static int selecionarCombobox(Evaluacion evaluacion)
+        {
+            int selecion = 0;
+            decimal a;
+            decimal Result;
+            a = (evaluacion.Logrado / evaluacion.Valor) * 100;
+            Result = 100 - a;
+
+            if (Result < 25)
+                selecion = 0;
+            else if (Result >= 25 && Result <= 30)
+                selecion = 1;
+            else if (Result > 25)
+                selecion = 2;
+            return selecion;
+
+        }
     }
 }
     

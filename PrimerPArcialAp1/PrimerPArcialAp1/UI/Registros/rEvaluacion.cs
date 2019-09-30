@@ -39,14 +39,27 @@ namespace PrimerPArcialAp1.UI.Registros
             evaluacion.Fecha = FechaDateTimePicker1.Value;
             evaluacion.Estudiantes = EstudianteTextBox.Text;
             evaluacion.Logrado = Convert.ToDecimal(LogradoTextBox.Text);
-
-            evaluacion.Perdido = Convert.ToDecimal(PerdidoTextBox.Text) ;
-
             evaluacion.Valor = Convert.ToDecimal(ValorTextBox.Text);
+            evaluacion.Perdido =evaluacion.Valor - evaluacion.Logrado;
 
-            EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado);
+            
 
             return evaluacion; 
+        }
+        private void Calculos()
+        {
+            try
+            {
+         Evaluacion evaluacion = Llenaclase();
+                LlenaCampo(evaluacion);
+            comboBox1.SelectedIndex = EvaluacionBLL.selecionarCombobox(evaluacion);
+            }
+            catch (Exception)
+            {
+
+               PerdidoTextBox.Text="0";
+            }
+           
         }
             public void LlenaCampo(Evaluacion evaluacion)
         {
@@ -82,6 +95,17 @@ namespace PrimerPArcialAp1.UI.Registros
                 EstudianteTextBox.Focus();
                     paso = false;
                 }
+                if (Convert.ToDecimal(LogradoTextBox.Text) < 0)
+            {
+                errorProvider1.SetError(LogradoTextBox, "el campo no puede tener valores menor que 0");
+                paso = false;
+            }
+
+            if (Convert.ToDecimal(ValorTextBox.Text) < 0)
+            {
+                errorProvider1.SetError(ValorTextBox, "el campo no puede tener valores menor que 0") ;
+                paso = false;
+            }
             return paso;
             }
         private bool ExisteEnLaBaseDeDatos()
@@ -179,46 +203,14 @@ namespace PrimerPArcialAp1.UI.Registros
 
         private void LogradoTextBox_TextChanged(object sender, EventArgs e)
         {
-            Evaluacion evaluacion = new Evaluacion();
-           
-
-            if (EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado) > (evaluacion.Valor * (decimal)0.30))
-            {
-                comboBox1.SelectedIndex = 2;
-            }
-            else
-          if (EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado) <= (evaluacion.Valor * (decimal)0.30) && EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado) >= (evaluacion.Valor * (decimal)0.25))
-            {
-                comboBox1.SelectedIndex = 1;
-            }
-            else
-          if (EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado) < (evaluacion.Valor * (decimal)0.25))
-            {
-                comboBox1.SelectedIndex = 0;
-
-            }
-
-            evaluacion.Pronostico = Convert.ToInt32(comboBox1.SelectedIndex);
-
-            decimal valor = 0;
-            decimal logrado = 0;
-            decimal perdido = valor - logrado;
-            PerdidoTextBox.Text = perdido.ToString();
+            Calculos();
 
 
         }
 
         private void ValorTextBox_TextChanged(object sender, EventArgs e)
         {
-            decimal valor = 0;
-            decimal logrado = 0;
-         
-           
-
-            valor = Convert.ToDecimal(ValorTextBox.Text);
-            logrado = Convert.ToDecimal(LogradoTextBox.Text);
-            decimal perdido = valor - logrado;
-            PerdidoTextBox.Text = perdido.ToString();
+            
         }
     }
     }
