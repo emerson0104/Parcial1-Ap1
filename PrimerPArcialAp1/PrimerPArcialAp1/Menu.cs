@@ -1,4 +1,5 @@
-﻿using PrimerPArcialAp1.UI.Registros;
+﻿using PrimerPArcialAp1.UI.Consultas;
+using PrimerPArcialAp1.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,12 @@ namespace PrimerPArcialAp1
         {
             rEvaluacion r = new rEvaluacion();
             r.Show();
+        }
+
+        private void ConsultaEvaluacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cEvaluacion c = new cEvaluacion();
+            c.Show();
         }
     }
 }

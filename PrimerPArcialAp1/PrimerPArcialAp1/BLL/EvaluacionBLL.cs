@@ -103,7 +103,26 @@ namespace PrimerPArcialAp1.BLL
             return evaluacion;
 
         }
+        public static List<Evaluacion> GetList(Expression<Func<Evaluacion, bool>> evaluacion)
+        {
+            List<Evaluacion> Lista = new List<Evaluacion>();
+            Contexto db = new Contexto();
 
+            try
+            {
+                Lista = db.Evaluacion.Where(evaluacion).ToList();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return Lista;
+        }
         public static decimal CalcularPerdido(decimal valor, decimal logrado)
         {
             return valor - logrado;

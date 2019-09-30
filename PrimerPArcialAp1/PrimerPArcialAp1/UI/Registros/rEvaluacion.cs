@@ -43,8 +43,8 @@ namespace PrimerPArcialAp1.UI.Registros
             evaluacion.Perdido = Convert.ToDecimal(PerdidoTextBox.Text) ;
 
             evaluacion.Valor = Convert.ToDecimal(ValorTextBox.Text);
-           
-         
+
+            EvaluacionBLL.CalcularPerdido(evaluacion.Valor, evaluacion.Logrado);
 
             return evaluacion; 
         }
